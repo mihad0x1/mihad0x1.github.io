@@ -1,3 +1,1 @@
-<script>
-  alert()
-</script>
+<script>alert('thsi is test')</script>
