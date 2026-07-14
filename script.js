@@ -224,6 +224,49 @@ header.style.boxShadow="none";
 
 /*====================================================
 
+Mobile Menu Toggle
+
+====================================================*/
+
+const menuBtn = document.getElementById("menuBtn");
+
+const navMenu = document.getElementById("navLinks");
+
+if(menuBtn && navMenu){
+
+    menuBtn.addEventListener("click", () => {
+
+        const isOpen = navMenu.classList.toggle("active");
+
+        menuBtn.setAttribute("aria-expanded", isOpen);
+
+        menuBtn.innerHTML = isOpen
+
+            ? '<i class="fa-solid fa-xmark"></i>'
+
+            : '<i class="fa-solid fa-bars"></i>';
+
+    });
+
+    navMenu.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navMenu.classList.remove("active");
+
+            menuBtn.setAttribute("aria-expanded", "false");
+
+            menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+        });
+
+    });
+
+}
+
+
+/*====================================================
+
 Smooth Anchor
 
 ====================================================*/
