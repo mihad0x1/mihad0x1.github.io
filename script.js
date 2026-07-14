@@ -277,11 +277,27 @@ anchor.addEventListener("click",function(e){
 
 e.preventDefault();
 
-document.querySelector(this.getAttribute("href")).scrollIntoView({
+const targetId = this.getAttribute("href");
+
+if(targetId === "#" || targetId === ""){
+
+window.scrollTo({ top: 0, behavior: "smooth" });
+
+return;
+
+}
+
+const targetEl = document.querySelector(targetId);
+
+if(targetEl){
+
+targetEl.scrollIntoView({
 
 behavior:"smooth"
 
 });
+
+}
 
 });
 
